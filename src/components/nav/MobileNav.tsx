@@ -41,7 +41,7 @@ export default function MobileNav() {
                             onClick={toggleMobileMenu}
                         />
                     </div>
-                    <ul className="h-full pt-20 pb-4 flex flex-col items-center gap-20 text-3xl !text-[#CFFF24]">
+                    <ul className="h-full pt-20 pb-4 flex flex-col items-center gap-20 text-3xl !text-[#CFFF24] font-bold">
                         <li>
                             <Link href="/">
                                 <span>Home</span>
@@ -57,7 +57,7 @@ export default function MobileNav() {
                                 <span>Contact</span>
                             </Link>
                         </li>
-                        <li className="mt-auto">
+                        <li className="mt-auto font-normal text-base">
                             <Link href="/contact" className="rounded-full px-12 py-3 border border-[#CFFF24]">
                                 Get Started
                             </Link>
