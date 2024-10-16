@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import heroImg from "@/app/assets/images/hero.jpg"
+import heroImg from "@/app/assets/images/hero-img2.png";
 import { Chip } from "primereact/chip";
 import ClipText from "./ClipText";
 
