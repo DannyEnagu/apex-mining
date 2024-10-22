@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ApexButton from "../ui/Button";
+import ApexLinkButton from "../ui/ApexLinkButton";
 import visionImg from "@/app/assets/images/hero.jpg"
 import ClipText from "../ClipText";
 
@@ -20,7 +20,8 @@ export default function Vision() {
                         through technology and financial inclusion.
                     </p>
                     <div className="mt-8">
-                        <ApexButton
+                        <ApexLinkButton
+                            href="#"
                             label="Investors Relations"
                             iconClass="text-gray-800 border-transparent bg-white"
                         />

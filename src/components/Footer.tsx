@@ -1,6 +1,6 @@
 import { InputText } from "primereact/inputtext";
 import ClipText from "./ClipText";
-import Button from "./ui/Button";
+import ApexLinkButton from "./ui/ApexLinkButton";
 import Link from "next/link";
 
 export default function Footer() {
@@ -20,8 +20,8 @@ export default function Footer() {
                                 placeholder="Enter your email"
                                 className="!bg-transparent flex-1 !rounded-s-full !py-1 !border-0"
                             />
-                            <Button
-                                type="submit"
+                            <ApexLinkButton
+                                href="#"
                                 label="Submit"
                                 iconClass="text-gray-800 border-transparent bg-white"
                             />
