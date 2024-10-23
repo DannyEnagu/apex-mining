@@ -1,6 +1,6 @@
 import { Card } from "primereact/card";
 import ClipText from "../ClipText";
-import Button from "../ui/Button";
+import ApexLinkButton from "../ui/ApexLinkButton";
 
 export default function Blogs() {
     return (
@@ -67,7 +67,8 @@ export default function Blogs() {
                 </Card>
             </div>
             <div className="flex justify-center mt-12">
-                <Button
+                <ApexLinkButton
+                    href="#"
                     label="Load More"
                     iconClass="text-gray-800 border-transparent bg-white"
                 />

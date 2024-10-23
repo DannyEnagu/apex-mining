@@ -1,6 +1,6 @@
 import { Card } from "primereact/card";
 import ClipText from "../ClipText";
-import ApexButton from "../ui/Button";
+import ApexLinkButton from "../ui/ApexLinkButton";
 
 export default function Trusted() {
     return (
@@ -19,7 +19,8 @@ export default function Trusted() {
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste, at. Excepturi quae totam consectetur magnam numquam odio repellat quidem nemo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet iure illum itaque corrupti sit ut expedita ipsum, qui autem nam, ipsa, ab voluptatibus magnam consequuntur nulla non repellat quae. Mollitia.
                             </p>
                             <p>
-                                <ApexButton
+                                <ApexLinkButton
+                                    href="#"
                                     label="More on Capital Markets"
                                     iconClass="text-gray-800 border-transparent bg-white"
                                 />

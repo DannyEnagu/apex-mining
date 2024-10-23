@@ -26,39 +26,34 @@ export default function Menu() {
             icon: 'pi pi-chart-bar'
         },
         {
-            name: 'Deposits History',
+            name: 'Deposits',
             url: '/dashboard/deposits',
             icon: 'pi pi-calendar'
         },
         {
             name: 'Withdrawals',
             url: '/dashboard/withdrawals',
-            icon: 'pi pi-money-bill'
-        },
-        {
-            name: 'Withdrawal History',
-            url: '/dashboard/withdrawals-history',
             icon: 'pi pi-list'
         },
-        {
-            name: 'Referrals',
-            url: '/dashboard/referrals',
-            icon: 'pi pi-users'
-        },
+        // {
+        //     name: 'Referrals',
+        //     url: '/dashboard/referrals',
+        //     icon: 'pi pi-users'
+        // },
         {
             name: 'Account',
             url: '/dashboard/account',
             icon: 'pi pi-user'
         },
-        {
-            name: 'Logout',
-            url: '/dashboard/logout',
-            icon: 'pi pi-sign-out'
-        }
+        // {
+        //     name: 'Logout',
+        //     url: '/dashboard/logout',
+        //     icon: 'pi pi-sign-out'
+        // }
     ], []);
 
     useEffect(() => {
-        const menuItem = menuItems.find((item) => pathname.startsWith(item.url));
+        const menuItem = menuItems.find((item) => pathname === item.url);
         setActiveMenuItem(menuItem);
     }, [pathname, menuItems]);
 

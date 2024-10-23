@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "@/components/ui/Button";
+import ApexLinkButton from "@/components/ui/ApexLinkButton";
 import heroImg from "@/app/assets/images/hero-img2.png";
 import { Chip } from "primereact/chip";
 import ClipText from "./ClipText";
@@ -26,13 +26,15 @@ export default function Hero() {
                 
                 </p>
                 <div className="space-x-5">
-                    <Button
+                    <ApexLinkButton
+                        href="#"
                         label="Get Started"
                         iconClass="text-gray-800 border-transparent bg-white"
                     />
-                    <Button
+                    <ApexLinkButton
+                        href="#"
                         label="Our Story"
-                        iconClass="!text-[#CFFF24] border-[#A0A0A0]"
+                        iconClass="text-[#CFFF24] border-[#A0A0A0]"
                         outlined
                     />
                 </div>
