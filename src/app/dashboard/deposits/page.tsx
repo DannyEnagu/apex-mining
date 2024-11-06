@@ -1,4 +1,4 @@
-import ApexDataTable from "../components/ApexDataTable";
+import ApexDataTable from "../../../components/ApexDataTable";
 import { depositHistoryTableConfig } from "@/utils/data-table-config/depositsTableConfig";
 
 export default function Page() {

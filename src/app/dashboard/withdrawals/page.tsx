@@ -1,4 +1,4 @@
-import ApexDataTable from "../components/ApexDataTable";
+import ApexDataTable from "../../../components/ApexDataTable";
 import { withdrawalHistoryTableConfig } from "@/utils/data-table-config/withdrawalsTableConfig";
 import WithdrawalForm from "../components/forms/WithdrawalForm";
 
