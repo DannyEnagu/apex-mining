@@ -14,28 +14,13 @@ import { InputIcon } from 'primereact/inputicon';
 
 export default function Page() {
     const [showModal, setShowModal] = React.useState(false);
-    const [selectedUser, setSelectedUser] = React.useState<any>(null);
     const [activeModal, setActiveModal] = React.useState<string>('');
     const [loading, setLoading] = React.useState(false);
     const [filterValue, setFilterValue] = React.useState('');
+
     const tableData = [
-        { firstName: 'John', lastName: 'Doe', username: 'johndoe', email: 'Johndoe@gamil.com', balances: {
-            btc: 0.0001,
-            eth: 0.0001,
-            bch: 0.0001,
-            usdtEr20: 0.0001,
-        },
-        action: 'edit',
-        },
-        { firstName: 'Jane', lastName: 'Doe', username: 'janedoe', email: 'Janedoe@mail.com', balances: {
-            btc: 0.0001,
-            eth: 0.0001,
-            bch: 0.0001,
-            usdtEr20: 0.0001,
-        },
-        action: 'edit',
-        }
-        
+        { email: 'test@gmail.com', type: 'btc', paymentMethod: 'cash', totalPlanProfit: '5000', activationDate: '11-11-2024', endDate: '11-11-2025', daysLeft: '150', amountInvested: '3000', status: 'active', action: 'edit' },
+        { email: 'test@gmail.com', type: 'btc', paymentMethod: 'cash', totalPlanProfit: '5000', activationDate: '11-11-2024', endDate: '11-11-2025', daysLeft: '150', amountInvested: '3000', status: 'active', action: 'edit' },
     ]
 
     const menuRef = React.useRef<Menu>(null);
@@ -54,17 +39,6 @@ export default function Page() {
         } },
     ];
 
-    const renderBalances = (rowData: any, options: ColumnBodyOptions) => {
-        console.log(rowData, options, 'balances');
-        return (
-            <div>
-                <div>BTC: {rowData.balances.btc}</div>
-                <div>ETH: {rowData.balances.eth}</div>
-                <div>BCH: {rowData.balances.bch}</div>
-                <div>USDT: {rowData.balances.usdtEr20}</div>
-            </div>
-        );
-    }
 
     const openMenu = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         if (!menuRef.current) return;
@@ -128,11 +102,15 @@ export default function Page() {
                 loading={loading}
                 size='small'
             >
-                <Column field="firstName" header="First Name" />
-                <Column field="lastName" header="Last Name" />
-                <Column field="username" header="Username" />
                 <Column field="email" header="Email" />
-                <Column field="balances" header="Balances" body={renderBalances} />
+                <Column field="type" header="Type" />
+                <Column field="paymentMethod" header="Payment Method" />
+                <Column field="totalPlanProfit" header="Total Plan Profit" />
+                <Column field="activationDate" header="Activation Date" />
+                <Column field="endDate" header="End Date" />
+                <Column field="daysLeft" header="Days Left" />
+                <Column field="amountInvested" header="Amount Invested" />
+                <Column field="status" header="Status" />
                 <Column field="action" header="Action" body={renderAction} />
             </DataTable>
 
