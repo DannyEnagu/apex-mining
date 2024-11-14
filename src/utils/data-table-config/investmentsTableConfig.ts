@@ -1,4 +1,4 @@
-import { DataTableConfig } from "@/app/dashboard/components/ApexDataTable";
+import { DataTableConfig } from "@/components/ApexDataTable";
 
 
 export const investmentTableConfig: DataTableConfig[] = [

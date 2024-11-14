@@ -1,4 +1,4 @@
-import ApexDataTable from "../components/ApexDataTable";
+import ApexDataTable from "../../../components/ApexDataTable";
 import { investmentTableConfig } from "@/utils/data-table-config/investmentsTableConfig";
 
 export default function Page() {

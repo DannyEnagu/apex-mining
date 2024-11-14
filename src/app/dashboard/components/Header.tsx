@@ -10,7 +10,9 @@ export default function Header() {
                     className="!text-white !p-0 text-2xl"
                     // style={{ fontSize: '1.7rem' }}
                 />
-                <span className="font-bold text-xl">Dashboard</span>
+                <span className="font-bold text-xl">
+                    Dashboard
+                </span>
             </div>
         </header>
     )
