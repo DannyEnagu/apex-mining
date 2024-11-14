@@ -61,28 +61,24 @@ export default function Menu() {
         },
         {
             label: 'Manage Plans',
-            items: [
-                {
-                    label: 'All currencies',
-                    icon: 'pi pi-briefcase',
-                    url: '/admin/plans'
-                },
-            ]
+            icon: 'pi pi-briefcase',
+            url: '/admin/plans'
         },
         {
             label: 'Emails',
-            items: [
-                {
-                    label: 'Send To User',
-                    icon: 'pi pi-envelope',
-                    url: '/admin/send-email'
-                },
-                {
-                    label: 'Send To All Users',
-                    icon: 'pi pi-envelope',
-                    url: '/admin/send-email'
-                },
-            ]
+            icon: 'pi pi-envelope',
+            url: '/admin/emails',
+            // items: [
+            //     {
+            //         label: 'Send To User',
+            //         url: '/admin/send-email'
+            //     },
+            //     {
+            //         label: 'Send To All Users',
+            //         icon: 'pi pi-envelope',
+            //         url: '/admin/send-email'
+            //     },
+            // ]
         },
         {
             label: 'Settings',
@@ -99,6 +95,7 @@ export default function Menu() {
             icon: 'pi pi-sign-out',
             command: () => {
                 console.log('Perform Logout')
+                // Use ConfirmDialog to confirm logout
             }
         },
     ];
