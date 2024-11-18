@@ -115,7 +115,7 @@ export default function Page() {
                 style={{ width: '50vw' }}
                 onHide={() => {if (!showModal) return; setShowModal(false); }}
             >
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit}className="space-y-4">
                     <div className="flex flex-col gap-2">
                         <label htmlFor="packageName">
                             Package Name

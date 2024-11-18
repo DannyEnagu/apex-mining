@@ -30,9 +30,14 @@ export default function Menu() {
             label: 'User Management',
             items: [
                 {
-                    label: 'All users',
+                    label: 'users',
                     icon: 'pi pi-users',
                     url: '/admin/users'
+                },
+                {
+                    label: 'Admins',
+                    icon: 'pi pi-users',
+                    url: '/admin/admins'
                 },
             ]
         },

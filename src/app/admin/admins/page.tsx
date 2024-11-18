@@ -11,43 +11,64 @@ import { ConfirmDialog } from 'primereact/confirmdialog';
 import { InputText } from 'primereact/inputtext';
 import { IconField } from 'primereact/iconfield';
 import { InputIcon } from 'primereact/inputicon';
-import { InputTextarea } from 'primereact/inputtextarea';
-import { RadioButton } from 'primereact/radiobutton';
 
 export default function Page() {
     const [showModal, setShowModal] = React.useState(false);
+    const [selectedUser, setSelectedUser] = React.useState<any>(null);
     const [activeModal, setActiveModal] = React.useState<string>('');
     const [loading, setLoading] = React.useState(false);
     const [filterValue, setFilterValue] = React.useState('');
-    const [recipient, setRecipient] = React.useState('');
-
     const tableData = [
-        { email: 'test@email.com', subject: 'Test Email', message: 'This is a test email', date: '11-11-2024', status: 'sent', action: 'edit' },
-        { email: 'test@email.com', subject: 'Test Email', message: 'This is a test email', date: '11-11-2024', status: 'sent', action: 'edit' },
+        { firstName: 'John', lastName: 'Doe', username: 'johndoe', email: 'Johndoe@gamil.com', balances: {
+            btc: 0.0001,
+            eth: 0.0001,
+            bch: 0.0001,
+            usdtEr20: 0.0001,
+        },
+        action: 'edit',
+        },
+        { firstName: 'Jane', lastName: 'Doe', username: 'janedoe', email: 'Janedoe@mail.com', balances: {
+            btc: 0.0001,
+            eth: 0.0001,
+            bch: 0.0001,
+            usdtEr20: 0.0001,
+        },
+        action: 'edit',
+        }
+        
     ]
 
     const menuRef = React.useRef<Menu>(null);
     const menuItems: MenuItem[] = [
-        { label: 'Edit Email', icon: 'pi pi-pencil', command: () => {
+        { label: 'Edit User', icon: 'pi pi-pencil', command: () => {
             setShowModal(true);
             setActiveModal('edit');
         } },
-        { label: 'Delete Email', icon: 'pi pi-trash', command: () => {
+        { label: 'Credit User', icon: 'pi pi-dollar', command: () => {
+            setShowModal(true);
+            setActiveModal('credit');
+        } },
+        { label: 'Delete User', icon: 'pi pi-trash', command: () => {
             setShowModal(true);
             setActiveModal('delete');
         } },
     ];
 
+    const renderBalances = (rowData: any, options: ColumnBodyOptions) => {
+        console.log(rowData, options, 'balances');
+        return (
+            <div>
+                <div>BTC: {rowData.balances.btc}</div>
+                <div>ETH: {rowData.balances.eth}</div>
+                <div>BCH: {rowData.balances.bch}</div>
+                <div>USDT: {rowData.balances.usdtEr20}</div>
+            </div>
+        );
+    }
 
     const openMenu = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         if (!menuRef.current) return;
         menuRef.current.toggle(event);
-    }
-
-    const openNewEmail = () => {
-        setShowModal(true);
-        setActiveModal('new');
-        console.log('new email');
     }
 
     const renderAction = (rowData: any, options: ColumnBodyOptions) => {
@@ -93,83 +114,36 @@ export default function Page() {
     const header = renderHeader();
 
     return (
-        <div className="bg-white py-4">
-            <h1 className="flex items-center justify-between px-4">
-                <span>Emails</span>
-                <Button label="Send A New Email" onClick={() => openNewEmail()}/>
-            </h1>
+        <div>
+            <h1>All Users</h1>
             <Divider className="my-4" />
             <DataTable
                 value={tableData}
                 stripedRows
                 header={header}
-                emptyMessage="No Data found."
+                emptyMessage="No customers found."
                 paginator
                 rows={10}
                 rowsPerPageOptions={[10, 20, 40, 50]}
                 loading={loading}
                 size='small'
             >
+                <Column field="firstName" header="First Name" />
+                <Column field="lastName" header="Last Name" />
+                <Column field="username" header="Username" />
                 <Column field="email" header="Email" />
-                <Column field="subject" header="Subject" />
-                <Column field="message" header="Message" />
-                <Column field="date" header="Date" />
-                <Column field="status" header="Status" />
+                <Column field="balances" header="Balances" body={renderBalances} />
                 <Column field="action" header="Action" body={renderAction} />
             </DataTable>
 
             {activeModal !== 'delete'
             ?   <Dialog
-                    header={activeModal === 'new' ? 'New Email' : 'Edit Email'}
+                    header="Edit User Details"
                     visible={showModal}
                     style={{ width: '50vw' }}
                     onHide={() => {if (!showModal) return; setShowModal(false); }}
                 >
-                    <form className="space-y-4">
-                        <div className="flex flex-col gap-2">
-                            <div className="flex align-items-center">
-                                <RadioButton inputId="recipientAll" name="recipient" value="all" onChange={(e) => setRecipient(e.value)} checked={recipient === 'all'} />
-                                <label htmlFor="recipientAll" className="ml-2">Send To All Users</label>
-                            </div>
-                            <div className="flex align-items-center">
-                                <RadioButton inputId="user" name="recipient" value="user" onChange={(e) => setRecipient(e.value)} checked={recipient === 'user'} />
-                                <label htmlFor="user" className="ml-2">Send To User</label>
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <label htmlFor="email">
-                                Email
-                            </label>
-                            <InputText
-                                id="email"
-                                placeholder="Email"
-                                disabled={recipient === 'all'}
-                            />
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <label htmlFor="subject">
-                                Subject
-                            </label>
-                            <InputText
-                                id="subject"
-                                placeholder="Subject"
-                            />
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <label htmlFor="message">
-                                Message
-                            </label>
-                            <InputTextarea
-                                id="message"
-                                rows={5}
-                                placeholder="Message"
-                            />
-                        </div>
-                        <div className="flex items-center justify-end gap-4">
-                            <Button label="Send" />
-                            <Button label="Cancel" className="!bg-red-500 text-white" onClick={() => setShowModal(false)} />
-                        </div>
-                    </form>
+                    Dialog content
                 </Dialog>
             :   <ConfirmDialog
                     header='Confirm Delete'
